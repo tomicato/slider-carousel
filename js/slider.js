@@ -128,14 +128,19 @@ $(function () {
 
     var j = 0;
     var slider = this;
-
+    var isRun = false;
+    
     sWt= slider.img.eq(0).width();
     sHt = slider.img.eq(0).height();
 
 
     // Предыдущий слайд
     this.prevSlide2 = function () {
+      if(isRun){
+        return;
+      }
 
+      isRun = true;
     // Скрыть предыдущий слайд
       slider.img.eq(j).css({
         height: sHt,
@@ -155,14 +160,20 @@ $(function () {
         left: sWt,
       }).animate({
         left:0,
-      }, 2000);
+      }, 2000, function () {
+        isRun = false;
+      });
 
     };
 
 
     // Следующий слайд
     this.nextSlide2 = function () {
+        if(isRun){
+          return;
+        }
 
+      isRun = true;
     // Скрыть следующий слайд
       slider.img.eq(j).css({
         height: sHt,
@@ -182,7 +193,9 @@ $(function () {
         left: -sWt,
       }).animate({
         left:0,
-      }, 2000);
+      }, 2000, function () {
+        isRun = false;
+      });
 
     };
 
