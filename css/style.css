@@ -9,13 +9,14 @@ html, body{
     text-align: center;
     position: relative;
 }
-#gallery .photos{
+#gallery .photos, #gallery .photos2{
     position: relative;
     height: 485px;
-
 }
 
-#gallery .photos img{
+.photos2{overflow: hidden;}
+
+#gallery .photos img, #gallery .photos2 img{
     width: 0;
     left:0;
     position: absolute;
@@ -28,20 +29,18 @@ html, body{
 }
 
 
-#gallery .photos img.showed{
-    /*opacity: 1;*/
+#gallery .photos img.showed, #gallery .photos2 img.showed{
     width: 100%;
-
 }
 
-.prev{
+.prev, .prev2{
     left: 5%;
 }
-.next{
+.next, .next2{
     right: 5%;
 }
 
-.next, .prev{
+.next, .prev, .next2, .prev2{
     opacity: 1;
     transition: 3s;
     font-size: 40px;
@@ -57,16 +56,3 @@ html, body{
     transition: 2s;
 }
 
-.box{
-    width: 170px;
-    height: 170px;
-    background: transparent;
-    border: 2px solid red;
-    position: absolute;
-    left:50%;
-}
-.box span{
-    position: absolute;
-    top:100%;
-    right: 0;
-}
